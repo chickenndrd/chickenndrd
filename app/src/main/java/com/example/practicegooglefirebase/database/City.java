@@ -11,6 +11,12 @@ public class City {
 
     public City() {    }
 
+    public City(String id, String name, String state) {
+        this.id = id;
+        this.name = name;
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         return "City{" +
@@ -18,5 +24,21 @@ public class City {
                 ", name='" + name + '\'' +
                 ", state='" + state + '\'' +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }

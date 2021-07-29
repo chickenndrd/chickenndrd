@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.practicegooglefirebase.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CityActivity extends AppCompatActivity {
 
@@ -19,7 +22,6 @@ public class CityActivity extends AppCompatActivity {
     ArrayList<City> arrayList;
     ArrayAdapter arrayAdapter;
     FirebaseFirestore db;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +32,16 @@ public class CityActivity extends AppCompatActivity {
 
         btnAdd = findViewById(R.id.button5);
         btnAdd.setOnClickListener(v -> {
-            City city = new City("Tan An", "LA");
-            db
+            Map<String, String> data = new HashMap<>();
+            data.put("name", "ABC");
+            data.put("state", "CDE");
+            db.collection("cities").add(data)
+                    .addOnSuccessListener(documentReference -> {
+                        Toast.makeText(this, "OKE", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
         });
 
         btnUpdate = findViewById(R.id.button6);
