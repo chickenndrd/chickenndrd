@@ -2,7 +2,7 @@ package com.example.practicegooglefirebase.database;
 
 public class City {
 
-    String id, name, state;
+    String name, state;
 
     public City(String name, String state) {
         this.name = name;
@@ -12,7 +12,6 @@ public class City {
     public City() {    }
 
     public City(String id, String name, String state) {
-        this.id = id;
         this.name = name;
         this.state = state;
     }
@@ -20,8 +19,7 @@ public class City {
     @Override
     public String toString() {
         return "City{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", state='" + state + '\'' +
                 '}';
     }
